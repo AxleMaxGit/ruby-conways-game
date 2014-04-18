@@ -1,5 +1,5 @@
 #Dimensions for the game grid
-WIDTH = 40
+WIDTH = 50
 HEIGHT = 50
 
 def rand_cell
@@ -40,10 +40,10 @@ def show_grid(grid)
       if grid[rindex][cindex] == 1
         print "️⬛️ "
       else
-        print "⬜️ ️"
+        print "⬜️ "
       end  
     end
-    puts "row #{rindex}\n"
+    puts "\n"
   end
 end
 
@@ -57,7 +57,6 @@ def count_neighbours(row, col)
       #ingnore the cell being evaluated
       unless c == 0 && r == 0
 
-      #puts "Evaluating neighbor R: #{[(row+r) % HEIGHT]} C: #{[(col+c) % WIDTH]}. State: #{@start_grid[(row+r) % HEIGHT][(col+c) % WIDTH]}" 
       #the modulus gives the grid infinite edges
       if @start_grid[(row+r) % HEIGHT][(col+c) % WIDTH] == 1
         cell_count += 1
@@ -73,17 +72,14 @@ def will_cell_survive(rindex, cindex)
   count = count_neighbours(rindex, cindex)
   #If the cell being evaluated is currently alive
   if @start_grid[rindex][cindex] == 1
-       #test rule 1 
+    #test rule 1 
     if alive_rule1(count)
-      #puts "Rule 1"
       return 0
-          #test rule 2
+    #test rule 2
     elsif alive_rule2(count)
-      #puts "Rule 2"
       return 1
     else
       #test rule 3
-      #print ""
       return 0
     end
 
@@ -91,7 +87,6 @@ def will_cell_survive(rindex, cindex)
   else
     #test rule 4
     if alive_rule4(count)
-      #puts "Rule 4"
       return 1
     end
   end
