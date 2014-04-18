@@ -1,59 +1,3 @@
-# require 'rubygems'
-# require 'awesome_print'
-
-# class Cell
-#   def alive_rule1(alive, neighbour_count)
-#     alive && neighbour_count < 2
-#   end
-
-#   def alive_rule2(alive, neighbour_count)
-#     alive && neighbour_count > 2 && neighbour_count <5
-#   end
-
-#   def alive_rule3(alive, neighbour_count)
-#     alive && neighbour_count > 3
-#   end
-
-#   def alive_rule4(alive, neighbour_count)
-#     !alive && neighbour_count == 3
-#   end
-# end
-
-# def assert(actual, expected)
-#   if actual == expected
-#     print "🔵 "
-#   else
-#     puts
-#     puts "Expected #{actual} == #{expected}"
-#   end
-# end
-
-#c1 = Cell.new
-
-#David = @suranyami
-
-# Rule 1: Any live cell with fewer than two live neighbours dies
-
-# puts "\n rule 1 tests"
-# assert c1.alive_rule1(true, 1), true
-# assert c1.alive_rule1(true, 3), false
-
-# # Rule 2: Any live cell with two or three live neighbours lives on to the next generation
-# puts "\n rule 2 tests"
-# assert c1.alive_rule2(true, 1), false
-# assert c1.alive_rule2(true, 3), true
-# assert c1.alive_rule2(true, 5), false
-
-# # Any live cell with more than three live neighbours dies, as if by overcrowding.
-# puts "\n rule 3 tests"
-# assert c1.alive_rule3(true, 1), false
-# assert c1.alive_rule3(true, 4), true
-
-# # Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction
-# puts "\n rule 4 tests"
-# assert c1.alive_rule4(false, 3), true
-# assert c1.alive_rule4(false, 2), false
-
 #Dimensions for the game grid
 WIDTH = 50
 HEIGHT = 50
@@ -168,17 +112,6 @@ end
 def alive_rule4(neighbour_count)
   neighbour_count == 3
 end
-
-
-#Run just one round of the game
-
-# system "clear"
-# starting_grid
-# show_grid(@start_grid)
-# puts "\n\n" 
-# next_grid
-# show_grid(@next_gen_grid)
-
 
 #Initiate the game grid
   system "clear"
