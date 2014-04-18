@@ -1,5 +1,5 @@
 #Dimensions for the game grid
-WIDTH = 50
+WIDTH = 40
 HEIGHT = 50
 
 def rand_cell
@@ -9,7 +9,7 @@ end
 
 def starting_grid
   #Initialise the playing grid
-  @start_grid = Array.new(WIDTH){Array.new(HEIGHT)}
+  @start_grid = Array.new(HEIGHT){Array.new(WIDTH)}
   #Randomly generate starting state for each cell on the grid
   @start_grid.each_with_index do |row, rindex|
     row.each_with_index do |col, cindex|
@@ -20,7 +20,7 @@ end
 
 def next_grid
   #build the next generation's grid to load values into
-  @next_gen_grid = Array.new(WIDTH){Array.new(HEIGHT)}
+  @next_gen_grid = Array.new(HEIGHT){Array.new(WIDTH)}
   
   #parse each cell in the start grid to see if it lives in the next round
   @start_grid.each_with_index do |row, rindex|
@@ -43,7 +43,7 @@ def show_grid(grid)
         print "⬜️ ️"
       end  
     end
-    puts "\n"
+    puts "row #{rindex}\n"
   end
 end
 
@@ -118,13 +118,13 @@ end
   starting_grid
 
 #Run the game
-200.times do |t|
+400.times do |t|
   system "clear"
   puts "\n\n" 
   next_grid
   puts "Grid #{t}"
   show_grid(@next_gen_grid)
-  sleep(0.18)
+  sleep(0.12)
 end
 
 
