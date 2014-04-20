@@ -115,7 +115,6 @@ end
 #Run the game
 400.times do |t|
   system "clear"
-  puts "\n\n" 
   next_grid
   puts "Grid #{t}"
   show_grid(@next_gen_grid)
